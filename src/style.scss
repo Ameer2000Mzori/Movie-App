@@ -5,3 +5,54 @@ body {
   padding: 0;
   margin: 0;
 }
+
+.navbar {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 1rem;
+  background-color: rgb(58, 58, 116);
+
+  .brand-Wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 45px;
+    width: 45px;
+
+    .brand-Img {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 45px;
+      width: 45px;
+    }
+  }
+
+  input {
+    display: flex;
+    font-family: inherit;
+    justify-content: center;
+    border-radius: 15px;
+    align-items: center;
+    text-align: start;
+    resize: none;
+    height: 20px;
+    outline: none;
+    background-color: rgb(58, 58, 116);
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    color: white;
+    padding: 5px;
+  }
+
+  input::placeholder {
+    color: rgb(255, 255, 255);
+    font-family: inherit;
+    font-weight: 200;
+    opacity: 1; /* Firefox */
+  }
+}
