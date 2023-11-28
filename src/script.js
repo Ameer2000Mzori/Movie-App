@@ -65,7 +65,6 @@ function requestMovie(Api_Key) {
                     data = _a.sent();
                     dataArry = data.results;
                     loadingAnimation.style.display = "none";
-                    console.log(dataArry);
                     loadMovies(dataArry);
                     return [3 /*break*/, 5];
                 case 4:
@@ -97,7 +96,13 @@ var loadMovies = function (data) {
         cardWrap.classList.add("card-wrap");
         var movieImg = document.createElement("img");
         movieImg.classList.add("movie-Img");
-        movieImg.src = "".concat(IMG_PATH_API + el.backdrop_path);
+        // if there is no image for movie take a use this image else use original
+        if (!el.backdrop_path) {
+            movieImg.src = "https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg";
+        }
+        else {
+            movieImg.src = "".concat(IMG_PATH_API + el.backdrop_path);
+        }
         cardWrap.appendChild(movieImg);
         var overText = document.createElement("div");
         overText.classList.add("over-Text");
@@ -124,15 +129,16 @@ var loadMovies = function (data) {
 };
 // here is our search function
 var searchFunction = function (e) {
+    // selecting our input text
     var textBox = document.getElementsByClassName("text-Box")[0];
+    // getting the value and putting it in varible
     var sreachWord = textBox.value;
+    // checking if there is value else dont file the code
     if (sreachWord) {
-        console.log(sreachWord);
         requestMovie(SEARCH_API_KEY + sreachWord);
         loadingAnimation.style.display = "Flex";
         headWrap.innerHTML = "        <img\n    class=\"loading-Animation\"\n    src=\"asset/animation-Loading.svg\"\n    alt=\"\"\n  />";
     }
-    console.log(e);
 };
 // our event lisnters
 window.addEventListener("load", function () {
@@ -140,30 +146,9 @@ window.addEventListener("load", function () {
 });
 // our eventlisner for search box
 addEventListener("keypress", function (e) {
+    // if pressed ETNER  then fire searchFunction else not
     if (e.key === "Enter") {
         var enterValue = e.key;
         searchFunction(enterValue);
     }
-    else {
-        console.log("please please enter");
-    }
 });
-// our dynamic html tree
-// <div class="card-wrap">
-// <img
-//   class="movie-Img"
-//   src="https://images.freeimages.com/images/large-previews/5eb/movie-clapboard-1184339.jpg?fmt=webp&w=350"
-//   alt=""
-// >
-// </img>
-// <div class="over-Text">
-// <p>
-//   Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-// </p>
-// </div>
-// <div class="text-Rate-Wrap">
-//   <h3 class="title-H3">
-//     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-//   </h3>
-//   <h3 class="rating-H3">7.1</h3>
-// </div>

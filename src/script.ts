@@ -23,8 +23,8 @@ async function requestMovie(Api_Key: string) {
     const data = await response.json();
     const dataArry = data.results;
     loadingAnimation.style.display = `none`;
-    console.log(dataArry);
     loadMovies(dataArry);
+    // if there is any error console log the error
   } catch (error) {
     console.log(`you got an error ${error}`);
   }
@@ -51,7 +51,12 @@ const loadMovies = (data: any) => {
 
     const movieImg = document.createElement("img");
     movieImg.classList.add("movie-Img");
-    movieImg.src = `${IMG_PATH_API + el.backdrop_path}`;
+    // if there is no image for movie take a use this image else use original
+    if (!el.backdrop_path) {
+      movieImg.src = `https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg`;
+    } else {
+      movieImg.src = `${IMG_PATH_API + el.backdrop_path}`;
+    }
     cardWrap.appendChild(movieImg);
 
     const overText = document.createElement("div");
@@ -84,12 +89,13 @@ const loadMovies = (data: any) => {
 };
 
 // here is our search function
-const searchFunction = (e) => {
+const searchFunction = (e: any) => {
+  // selecting our input text
   const textBox = document.getElementsByClassName("text-Box")[0] as any;
+  // getting the value and putting it in varible
   const sreachWord = textBox.value;
+  // checking if there is value else dont file the code
   if (sreachWord) {
-    console.log(sreachWord);
-
     requestMovie(SEARCH_API_KEY + sreachWord);
     loadingAnimation.style.display = `Flex`;
     headWrap.innerHTML = `        <img
@@ -98,7 +104,6 @@ const searchFunction = (e) => {
     alt=""
   />`;
   }
-  console.log(e);
 };
 
 // our event lisnters
@@ -108,30 +113,9 @@ window.addEventListener("load", () => {
 
 // our eventlisner for search box
 addEventListener("keypress", (e) => {
+  // if pressed ETNER  then fire searchFunction else not
   if (e.key === "Enter") {
     var enterValue = e.key;
     searchFunction(enterValue);
-  } else {
-    console.log("please please enter");
   }
 });
-
-// our dynamic html tree
-// <div class="card-wrap">
-// <img
-//   class="movie-Img"
-//   src="https://images.freeimages.com/images/large-previews/5eb/movie-clapboard-1184339.jpg?fmt=webp&w=350"
-//   alt=""
-// >
-// </img>
-// <div class="over-Text">
-// <p>
-//   Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-// </p>
-// </div>
-// <div class="text-Rate-Wrap">
-//   <h3 class="title-H3">
-//     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-//   </h3>
-//   <h3 class="rating-H3">7.1</h3>
-// </div>
