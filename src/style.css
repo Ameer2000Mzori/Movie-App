@@ -71,6 +71,14 @@ body {
   align-items: start;
 }
 
+.header .head-Wrap .loading-Animation {
+  display: flex;
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .header .head-Wrap .card-wrap {
   display: flex;
   flex-direction: column;

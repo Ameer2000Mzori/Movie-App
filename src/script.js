@@ -1,4 +1,3 @@
-// selecting our elements
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,9 +34,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+// selecting our elements
+var loadingAnimation = document.getElementsByClassName("loading-Animation")[0];
 // getting our api keys
 var API_KEY = "https://api.themoviedb.org/3/movie/popular?api_key=8dbad61c621c6aded1acf7750c8edc2a";
 var SEARCH_API_KEY = " https://api.themoviedb.org/3/search/movie?api_key=8dbad61c621c6aded1acf7750c8edc2a&query=";
+// stop displaying our loading animation:
+loadingAnimation.style.display = "none";
 // api fetch function
 function requestMovie(Api_Key) {
     return __awaiter(this, void 0, void 0, function () {
@@ -45,23 +48,27 @@ function requestMovie(Api_Key) {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 3, , 4]);
-                    return [4 /*yield*/, fetch(Api_Key)];
+                    loadingAnimation.style.display = "flex";
+                    _a.label = 1;
                 case 1:
+                    _a.trys.push([1, 4, , 5]);
+                    return [4 /*yield*/, fetch(Api_Key)];
+                case 2:
                     response = _a.sent();
                     if (!response) {
                         console.log("error with response");
                     }
                     return [4 /*yield*/, response.json()];
-                case 2:
-                    data = _a.sent();
-                    console.log(data);
-                    return [3 /*break*/, 4];
                 case 3:
+                    data = _a.sent();
+                    loadingAnimation.style.display = "none";
+                    console.log(data);
+                    return [3 /*break*/, 5];
+                case 4:
                     error_1 = _a.sent();
                     console.log("you got an error ".concat(error_1));
-                    return [3 /*break*/, 4];
-                case 4: return [2 /*return*/];
+                    return [3 /*break*/, 5];
+                case 5: return [2 /*return*/];
             }
         });
     });

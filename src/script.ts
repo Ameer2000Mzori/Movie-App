@@ -1,17 +1,25 @@
 // selecting our elements
+const loadingAnimation = document.getElementsByClassName(
+  "loading-Animation"
+)[0] as HTMLElement;
 
 // getting our api keys
 const API_KEY: string = `https://api.themoviedb.org/3/movie/popular?api_key=8dbad61c621c6aded1acf7750c8edc2a`;
 const SEARCH_API_KEY: string = ` https://api.themoviedb.org/3/search/movie?api_key=8dbad61c621c6aded1acf7750c8edc2a&query=`;
 
+// stop displaying our loading animation:
+loadingAnimation.style.display = `none`;
+
 // api fetch function
 async function requestMovie(Api_Key: string) {
+  loadingAnimation.style.display = `flex`;
   try {
     const response = await fetch(Api_Key);
     if (!response) {
       console.log("error with response");
     }
     const data = await response.json();
+    loadingAnimation.style.display = `none`;
     console.log(data);
   } catch (error) {
     console.log(`you got an error ${error}`);
