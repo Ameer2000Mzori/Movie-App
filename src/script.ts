@@ -78,14 +78,42 @@ const loadMovies = (data: any) => {
     ratingH3.textContent = `${newRate}`;
     textRateWrap.appendChild(ratingH3);
 
+    // appending our elemtns to headWrap
     headWrap.appendChild(cardWrap);
-    console.log(el.original_title);
   });
+};
+
+// here is our search function
+const searchFunction = (e) => {
+  const textBox = document.getElementsByClassName("text-Box")[0] as any;
+  const sreachWord = textBox.value;
+  if (sreachWord) {
+    console.log(sreachWord);
+
+    requestMovie(SEARCH_API_KEY + sreachWord);
+    loadingAnimation.style.display = `Flex`;
+    headWrap.innerHTML = `        <img
+    class="loading-Animation"
+    src="asset/animation-Loading.svg"
+    alt=""
+  />`;
+  }
+  console.log(e);
 };
 
 // our event lisnters
 window.addEventListener("load", () => {
   requestMovie(API_KEY);
+});
+
+// our eventlisner for search box
+addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    var enterValue = e.key;
+    searchFunction(enterValue);
+  } else {
+    console.log("please please enter");
+  }
 });
 
 // our dynamic html tree

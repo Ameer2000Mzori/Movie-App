@@ -118,13 +118,35 @@ var loadMovies = function (data) {
         ratingH3.style.backgroundColor = "".concat(rateColor);
         ratingH3.textContent = "".concat(newRate);
         textRateWrap.appendChild(ratingH3);
+        // appending our elemtns to headWrap
         headWrap.appendChild(cardWrap);
-        console.log(el.original_title);
     });
+};
+// here is our search function
+var searchFunction = function (e) {
+    var textBox = document.getElementsByClassName("text-Box")[0];
+    var sreachWord = textBox.value;
+    if (sreachWord) {
+        console.log(sreachWord);
+        requestMovie(SEARCH_API_KEY + sreachWord);
+        loadingAnimation.style.display = "Flex";
+        headWrap.innerHTML = "        <img\n    class=\"loading-Animation\"\n    src=\"asset/animation-Loading.svg\"\n    alt=\"\"\n  />";
+    }
+    console.log(e);
 };
 // our event lisnters
 window.addEventListener("load", function () {
     requestMovie(API_KEY);
+});
+// our eventlisner for search box
+addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+        var enterValue = e.key;
+        searchFunction(enterValue);
+    }
+    else {
+        console.log("please please enter");
+    }
 });
 // our dynamic html tree
 // <div class="card-wrap">
