@@ -102,7 +102,9 @@ const searchFunction = (e: any) => {
     class="loading-Animation"
     src="asset/animation-Loading.svg"
     alt=""
-  />`;
+  />
+  `;
+    textBox.value = "";
   }
 };
 

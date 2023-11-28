@@ -137,7 +137,8 @@ var searchFunction = function (e) {
     if (sreachWord) {
         requestMovie(SEARCH_API_KEY + sreachWord);
         loadingAnimation.style.display = "Flex";
-        headWrap.innerHTML = "        <img\n    class=\"loading-Animation\"\n    src=\"asset/animation-Loading.svg\"\n    alt=\"\"\n  />";
+        headWrap.innerHTML = "        <img\n    class=\"loading-Animation\"\n    src=\"asset/animation-Loading.svg\"\n    alt=\"\"\n  />\n  ";
+        textBox.value = "";
     }
 };
 // our event lisnters
