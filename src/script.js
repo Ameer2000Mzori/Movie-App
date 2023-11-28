@@ -40,6 +40,7 @@ var headWrap = document.getElementsByClassName("head-Wrap")[0];
 // getting our api keys
 var API_KEY = "https://api.themoviedb.org/3/movie/popular?api_key=8dbad61c621c6aded1acf7750c8edc2a";
 var SEARCH_API_KEY = " https://api.themoviedb.org/3/search/movie?api_key=8dbad61c621c6aded1acf7750c8edc2a&query=";
+var IMG_PATH_API = "https://image.tmdb.org/t/p/w500/";
 // stop displaying our loading animation:
 loadingAnimation.style.display = "none";
 // api fetch function
@@ -96,7 +97,7 @@ var loadMovies = function (data) {
         cardWrap.classList.add("card-wrap");
         var movieImg = document.createElement("img");
         movieImg.classList.add("movie-Img");
-        // movieImg.src = `${el.backdrop_path}`;
+        movieImg.src = "".concat(IMG_PATH_API + el.backdrop_path);
         cardWrap.appendChild(movieImg);
         var textRateWrap = document.createElement("div");
         textRateWrap.classList.add("text-Rate-Wrap");

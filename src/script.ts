@@ -7,6 +7,7 @@ const headWrap = document.getElementsByClassName("head-Wrap")[0] as HTMLElement;
 // getting our api keys
 const API_KEY: string = `https://api.themoviedb.org/3/movie/popular?api_key=8dbad61c621c6aded1acf7750c8edc2a`;
 const SEARCH_API_KEY: string = ` https://api.themoviedb.org/3/search/movie?api_key=8dbad61c621c6aded1acf7750c8edc2a&query=`;
+const IMG_PATH_API: string = `https://image.tmdb.org/t/p/w500/`;
 
 // stop displaying our loading animation:
 loadingAnimation.style.display = `none`;
@@ -50,7 +51,7 @@ const loadMovies = (data: any) => {
 
     const movieImg = document.createElement("img");
     movieImg.classList.add("movie-Img");
-    // movieImg.src = `${el.backdrop_path}`;
+    movieImg.src = `${IMG_PATH_API + el.backdrop_path}`;
     cardWrap.appendChild(movieImg);
 
     const textRateWrap = document.createElement("div");

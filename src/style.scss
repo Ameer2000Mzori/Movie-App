@@ -4,6 +4,7 @@ body {
   font-family: "Poppins", sans-serif;
   padding: 0;
   margin: 0;
+  overflow-x: hidden;
 }
 
 .navbar {
@@ -11,7 +12,7 @@ body {
   text-align: center;
   align-items: center;
   justify-content: space-evenly;
-  padding: 1rem;
+
   background-color: rgb(58, 58, 116);
 
   .brand-Wrapper {
@@ -58,16 +59,22 @@ body {
 }
 
 .header {
-  padding: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: start;
+  align-items: center;
+  padding: 15px;
   background-color: rgb(27, 27, 53);
 
   .head-Wrap {
     display: flex;
-    width: 100%;
+    width: 80%;
+    margin: 0px;
+    padding: 0px;
     height: 100%;
-    justify-content: start;
+    justify-content: center;
     text-align: start;
-    align-items: start;
+    align-items: center;
     flex-wrap: wrap;
 
     .loading-Animation {
@@ -85,15 +92,16 @@ body {
       text-align: center;
       align-items: center;
       background-color: rgb(68, 68, 105);
-      width: 250px;
-      height: 500px;
+      width: 200px;
+      height: 300px;
       margin: 5px;
       overflow: hidden;
       border-radius: 5px;
 
       img {
+        background-position: center;
+        background-repeat: no-repeat;
         height: 70%;
-        background-size: cover;
         width: 100%;
         border-radius: 0 0 15px 15px;
       }

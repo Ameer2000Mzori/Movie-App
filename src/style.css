@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
 body {
   font-family: "Poppins", sans-serif;
   padding: 0;
   margin: 0;
+  overflow-x: hidden;
 }
 
 .navbar {
@@ -11,10 +11,8 @@ body {
   text-align: center;
   align-items: center;
   justify-content: space-evenly;
-  padding: 1rem;
   background-color: rgb(58, 58, 116);
 }
-
 .navbar .brand-Wrapper {
   display: flex;
   justify-content: center;
@@ -23,7 +21,6 @@ body {
   height: 45px;
   width: 45px;
 }
-
 .navbar .brand-Wrapper .brand-Img {
   justify-content: center;
   align-items: center;
@@ -31,7 +28,6 @@ body {
   height: 45px;
   width: 45px;
 }
-
 .navbar input {
   display: flex;
   font-family: inherit;
@@ -49,7 +45,6 @@ body {
   color: white;
   padding: 5px;
 }
-
 .navbar input::placeholder {
   color: rgb(255, 255, 255);
   font-family: inherit;
@@ -58,20 +53,24 @@ body {
 }
 
 .header {
-  padding: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: start;
+  align-items: center;
+  padding: 15px;
   background-color: rgb(27, 27, 53);
 }
-
 .header .head-Wrap {
   display: flex;
-  width: 100%;
+  width: 80%;
+  margin: 0px;
+  padding: 0px;
   height: 100%;
-  justify-content: start;
+  justify-content: center;
   text-align: start;
-  align-items: start;
+  align-items: center;
   flex-wrap: wrap;
 }
-
 .header .head-Wrap .loading-Animation {
   display: flex;
   position: fixed;
@@ -79,7 +78,6 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 .header .head-Wrap .card-wrap {
   display: flex;
   flex-direction: column;
@@ -87,20 +85,19 @@ body {
   text-align: center;
   align-items: center;
   background-color: rgb(68, 68, 105);
-  width: 250px;
-  height: 500px;
+  width: 200px;
+  height: 300px;
   margin: 5px;
   overflow: hidden;
   border-radius: 5px;
 }
-
 .header .head-Wrap .card-wrap img {
+  background-position: center;
+  background-repeat: no-repeat;
   height: 70%;
-  background-size: cover;
   width: 100%;
   border-radius: 0 0 15px 15px;
 }
-
 .header .head-Wrap .card-wrap .text-Rate-Wrap {
   display: flex;
   width: 100%;
@@ -109,7 +106,6 @@ body {
   height: 30%;
   justify-content: space-evenly;
 }
-
 .header .head-Wrap .card-wrap .text-Rate-Wrap .rating-H3 {
   display: flex;
   justify-content: center;
@@ -126,7 +122,6 @@ body {
   border-radius: 5px;
   align-items: center;
 }
-
 .header .head-Wrap .card-wrap .text-Rate-Wrap .title-H3 {
   width: 70%;
   font-size: 15px;
@@ -136,3 +131,5 @@ body {
   font-family: inherit;
   color: rgb(255, 255, 255);
 }
+
+/*# sourceMappingURL=style.css.map */
