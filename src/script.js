@@ -36,6 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 // selecting our elements
 var loadingAnimation = document.getElementsByClassName("loading-Animation")[0];
+var headWrap = document.getElementsByClassName("head-Wrap")[0];
 // getting our api keys
 var API_KEY = "https://api.themoviedb.org/3/movie/popular?api_key=8dbad61c621c6aded1acf7750c8edc2a";
 var SEARCH_API_KEY = " https://api.themoviedb.org/3/search/movie?api_key=8dbad61c621c6aded1acf7750c8edc2a&query=";
@@ -78,6 +79,39 @@ function requestMovie(Api_Key) {
 // functions
 var loadMovies = function (data) {
     data.forEach(function (el) {
+        // getting single number from our rates
+        var newRate = Math.floor(el.vote_average);
+        // else if lader to change background color of rate wrappers
+        if (newRate >= 7) {
+            var rateColor = "green";
+        }
+        else if (newRate >= 4) {
+            var rateColor = "#FFF5C2";
+        }
+        else {
+            var rateColor = "red";
+        }
+        // creating our elements dynamclly
+        var cardWrap = document.createElement("div");
+        cardWrap.classList.add("card-wrap");
+        var movieImg = document.createElement("img");
+        movieImg.classList.add("movie-Img");
+        // movieImg.src = `${el.backdrop_path}`;
+        cardWrap.appendChild(movieImg);
+        var textRateWrap = document.createElement("div");
+        textRateWrap.classList.add("text-Rate-Wrap");
+        cardWrap.appendChild(textRateWrap);
+        var titleH3 = document.createElement("h3");
+        titleH3.classList.add("title-H3");
+        titleH3.textContent = "".concat(el.original_title);
+        textRateWrap.appendChild(titleH3);
+        var ratingH3 = document.createElement("h3");
+        ratingH3.classList.add("rating-H3");
+        ratingH3.style.color = "black";
+        ratingH3.style.backgroundColor = "".concat(rateColor);
+        ratingH3.textContent = "".concat(newRate);
+        textRateWrap.appendChild(ratingH3);
+        headWrap.appendChild(cardWrap);
         console.log(el.original_title);
     });
 };
@@ -98,3 +132,15 @@ window.addEventListener("load", function () {
 //   <h3 class="rating-H3">7.1</h3>
 // </div>
 // </div>
+// .innerHTML = `
+//         <div class="card-wrap">
+//     <img class="movie-Img"
+//     src="https://images.freeimages.com/images/large-previews/5eb/movie-clapboard-1184339.jpg?fmt=webp&w=350"
+//     alt=""
+//     />
+//     <div class="text-Rate-Wrap">
+//     <h3 class="title-H3"> ${el.original_title}</h3>
+//     <h3 class="rating-H3" style="background-color: ${rateColor}">${newRate}</h3>
+//     </div>
+//     </div>
+//     `;

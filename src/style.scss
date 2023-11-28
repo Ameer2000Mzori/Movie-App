@@ -68,6 +68,7 @@ body {
     justify-content: start;
     text-align: start;
     align-items: start;
+    flex-wrap: wrap;
 
     .loading-Animation {
       display: flex;
@@ -86,6 +87,7 @@ body {
       background-color: rgb(68, 68, 105);
       width: 250px;
       height: 500px;
+      margin: 5px;
       overflow: hidden;
       border-radius: 5px;
 
@@ -109,7 +111,7 @@ body {
           justify-content: center;
           font-size: 15px;
           margin: 0;
-          font-weight: 400;
+          font-weight: 600;
           font-family: inherit;
           color: rgb(255, 255, 255);
           background-color: rgb(27, 27, 53);
