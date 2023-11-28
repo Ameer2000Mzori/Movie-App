@@ -54,6 +54,14 @@ const loadMovies = (data: any) => {
     movieImg.src = `${IMG_PATH_API + el.backdrop_path}`;
     cardWrap.appendChild(movieImg);
 
+    const overText = document.createElement("div");
+    overText.classList.add("over-Text");
+
+    const pText = document.createElement("p");
+    pText.textContent = `${el.overview}`;
+    overText.appendChild(pText);
+    cardWrap.appendChild(overText);
+
     const textRateWrap = document.createElement("div");
     textRateWrap.classList.add("text-Rate-Wrap");
     cardWrap.appendChild(textRateWrap);
@@ -82,28 +90,20 @@ window.addEventListener("load", () => {
 
 // our dynamic html tree
 // <div class="card-wrap">
-// <img class="movie-Img"
+// <img
+//   class="movie-Img"
 //   src="https://images.freeimages.com/images/large-previews/5eb/movie-clapboard-1184339.jpg?fmt=webp&w=350"
 //   alt=""
-// />
+// >
+// </img>
+// <div class="over-Text">
+// <p>
+//   Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+// </p>
+// </div>
 // <div class="text-Rate-Wrap">
 //   <h3 class="title-H3">
 //     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
 //   </h3>
 //   <h3 class="rating-H3">7.1</h3>
 // </div>
-// </div>
-
-// .innerHTML = `
-
-//         <div class="card-wrap">
-//     <img class="movie-Img"
-//     src="https://images.freeimages.com/images/large-previews/5eb/movie-clapboard-1184339.jpg?fmt=webp&w=350"
-//     alt=""
-//     />
-//     <div class="text-Rate-Wrap">
-//     <h3 class="title-H3"> ${el.original_title}</h3>
-//     <h3 class="rating-H3" style="background-color: ${rateColor}">${newRate}</h3>
-//     </div>
-//     </div>
-//     `;

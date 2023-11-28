@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 body {
   font-family: "Poppins", sans-serif;
   padding: 0;
@@ -13,6 +14,7 @@ body {
   justify-content: space-evenly;
   background-color: rgb(58, 58, 116);
 }
+
 .navbar .brand-Wrapper {
   display: flex;
   justify-content: center;
@@ -21,6 +23,7 @@ body {
   height: 45px;
   width: 45px;
 }
+
 .navbar .brand-Wrapper .brand-Img {
   justify-content: center;
   align-items: center;
@@ -28,6 +31,7 @@ body {
   height: 45px;
   width: 45px;
 }
+
 .navbar input {
   display: flex;
   font-family: inherit;
@@ -45,6 +49,7 @@ body {
   color: white;
   padding: 5px;
 }
+
 .navbar input::placeholder {
   color: rgb(255, 255, 255);
   font-family: inherit;
@@ -60,17 +65,19 @@ body {
   padding: 15px;
   background-color: rgb(27, 27, 53);
 }
+
 .header .head-Wrap {
   display: flex;
   width: 80%;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   height: 100%;
   justify-content: center;
   text-align: start;
   align-items: center;
   flex-wrap: wrap;
 }
+
 .header .head-Wrap .loading-Animation {
   display: flex;
   position: fixed;
@@ -78,7 +85,9 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .header .head-Wrap .card-wrap {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -91,6 +100,31 @@ body {
   overflow: hidden;
   border-radius: 5px;
 }
+
+.header .head-Wrap .card-wrap .over-Text {
+  text-align: center;
+  align-items: center;
+  top: 0%;
+  left: 0%;
+  opacity: 0;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  height: 70%;
+  width: 100%;
+  overflow: auto;
+  transition: all;
+  transition-duration: 0.5s;
+  font-weight: 500;
+  font-size: 15px;
+  border-radius: 0 0 15px 15px;
+  background-color: rgb(224, 223, 223);
+}
+
+.header .head-Wrap .card-wrap .over-Text:hover {
+  opacity: 1;
+}
+
 .header .head-Wrap .card-wrap img {
   background-position: center;
   background-repeat: no-repeat;
@@ -98,6 +132,7 @@ body {
   width: 100%;
   border-radius: 0 0 15px 15px;
 }
+
 .header .head-Wrap .card-wrap .text-Rate-Wrap {
   display: flex;
   width: 100%;
@@ -106,6 +141,7 @@ body {
   height: 30%;
   justify-content: space-evenly;
 }
+
 .header .head-Wrap .card-wrap .text-Rate-Wrap .rating-H3 {
   display: flex;
   justify-content: center;
@@ -122,6 +158,7 @@ body {
   border-radius: 5px;
   align-items: center;
 }
+
 .header .head-Wrap .card-wrap .text-Rate-Wrap .title-H3 {
   width: 70%;
   font-size: 15px;
@@ -131,5 +168,3 @@ body {
   font-family: inherit;
   color: rgb(255, 255, 255);
 }
-
-/*# sourceMappingURL=style.css.map */

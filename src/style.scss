@@ -12,7 +12,6 @@ body {
   text-align: center;
   align-items: center;
   justify-content: space-evenly;
-
   background-color: rgb(58, 58, 116);
 
   .brand-Wrapper {
@@ -69,8 +68,8 @@ body {
   .head-Wrap {
     display: flex;
     width: 80%;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     height: 100%;
     justify-content: center;
     text-align: start;
@@ -86,6 +85,7 @@ body {
     }
 
     .card-wrap {
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
@@ -97,6 +97,30 @@ body {
       margin: 5px;
       overflow: hidden;
       border-radius: 5px;
+
+      .over-Text {
+        text-align: center;
+        align-items: center;
+        top: 0%;
+        left: 0%;
+        opacity: 0;
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        height: 70%;
+        width: 100%;
+        overflow: auto;
+        transition: all;
+        transition-duration: 0.5s;
+        font-weight: 500;
+        font-size: 15px;
+        border-radius: 0 0 15px 15px;
+        background-color: rgb(224, 223, 223);
+      }
+
+      .over-Text:hover {
+        opacity: 1;
+      }
 
       img {
         background-position: center;
