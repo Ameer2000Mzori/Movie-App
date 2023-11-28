@@ -75,7 +75,6 @@ function requestMovie(Api_Key) {
         });
     });
 }
-requestMovie(API_KEY);
 // functions
 var loadMovies = function (data) {
     data.forEach(function (el) {
@@ -83,7 +82,9 @@ var loadMovies = function (data) {
     });
 };
 // our event lisnters
-window.addEventListener("load", loadMovies);
+window.addEventListener("load", function () {
+    requestMovie(API_KEY);
+});
 // our dynamic html tree
 // <div class="card-wrap">
 // <img class="movie-Img"

@@ -28,8 +28,6 @@ async function requestMovie(Api_Key: string) {
   }
 }
 
-requestMovie(API_KEY);
-
 // functions
 const loadMovies = (data: any) => {
   data.forEach((el: any) => {
@@ -38,7 +36,9 @@ const loadMovies = (data: any) => {
 };
 
 // our event lisnters
-window.addEventListener("load", loadMovies);
+window.addEventListener("load", () => {
+  requestMovie(API_KEY);
+});
 
 // our dynamic html tree
 // <div class="card-wrap">
