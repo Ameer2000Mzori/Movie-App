@@ -44,7 +44,7 @@ loadingAnimation.style.display = "none";
 // api fetch function
 function requestMovie(Api_Key) {
     return __awaiter(this, void 0, void 0, function () {
-        var response, data, error_1;
+        var response, data, dataArry, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -61,8 +61,10 @@ function requestMovie(Api_Key) {
                     return [4 /*yield*/, response.json()];
                 case 3:
                     data = _a.sent();
+                    dataArry = data.results;
                     loadingAnimation.style.display = "none";
-                    console.log(data);
+                    console.log(dataArry);
+                    loadMovies(dataArry);
                     return [3 /*break*/, 5];
                 case 4:
                     error_1 = _a.sent();
@@ -74,8 +76,14 @@ function requestMovie(Api_Key) {
     });
 }
 requestMovie(API_KEY);
-// dynamclly adding data
+// functions
+var loadMovies = function (data) {
+    data.forEach(function (el) {
+        console.log(el.original_title);
+    });
+};
 // our event lisnters
+window.addEventListener("load", loadMovies);
 // our dynamic html tree
 // <div class="card-wrap">
 // <img class="movie-Img"

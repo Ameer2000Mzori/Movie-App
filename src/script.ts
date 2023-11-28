@@ -19,8 +19,10 @@ async function requestMovie(Api_Key: string) {
       console.log("error with response");
     }
     const data = await response.json();
+    const dataArry = data.results;
     loadingAnimation.style.display = `none`;
-    console.log(data);
+    console.log(dataArry);
+    loadMovies(dataArry);
   } catch (error) {
     console.log(`you got an error ${error}`);
   }
@@ -28,9 +30,15 @@ async function requestMovie(Api_Key: string) {
 
 requestMovie(API_KEY);
 
-// dynamclly adding data
+// functions
+const loadMovies = (data: any) => {
+  data.forEach((el: any) => {
+    console.log(el.original_title);
+  });
+};
 
 // our event lisnters
+window.addEventListener("load", loadMovies);
 
 // our dynamic html tree
 // <div class="card-wrap">
